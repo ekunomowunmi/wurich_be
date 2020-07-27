@@ -14,6 +14,7 @@ router.get('/product/:id', ProductCtrl.getProductById)
 router.get('/movie/:id', MovieCtrl.getMovieById)
 router.post('/category', CategoryCtrl.createCategory)
 router.get('/categories', CategoryCtrl.getCategories)
+router.get('/getProductByCategory/:catid', ProductCtrl.getProductByCategory)
 
 
 module.exports = router

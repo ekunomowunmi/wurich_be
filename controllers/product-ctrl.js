@@ -101,6 +101,20 @@ getProductById = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+getProductByCategory = async (req, res) => {
+    await Product.find({category_id: req.params.catid}, (err, products) => {
+        if(err) {
+            return res.status(400).json({success: false, error:err})
+        }
+        if (!products) {
+            return res
+                .status(404)
+                .json({ success: false, error: `No Product for this category` })
+        }
+        return res.status(200).json({success:true, data: products})
+    }).catch(err=> console.log(err))
+}
+
 
 
 deleteProduct = async (req,res) => {
@@ -122,5 +136,6 @@ module.exports = {
     getProducts,
     updateProduct,
     getProductById,
+    getProductByCategory,
     deleteProduct
 }
