@@ -8,9 +8,8 @@ const Seller = new Schema(
         phonenumber: {type: String, required:true},
         email: {type: String, required:true},
         subscription: {type: Boolean, required: true}
-        
-
-    }
+    },
+    {timestamps:true}
 );
 module.exports = mongoose.model('sellers',Seller);
 // ID,Phonenum, email,Subscription:bool,userType
