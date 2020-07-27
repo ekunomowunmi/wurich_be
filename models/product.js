@@ -9,8 +9,9 @@ const Product = new Schema({
     description: {type: String},
     price: {type: String},
     top_ten: {type: Boolean},
-    category_id: {type: String, required: true},
+    category_id: {type: mongoose.Types.ObjectId, required: true},
         // rating: {type: Number, required:true}
-});
+},
+{timestamps:true});
 
 module.exports = mongoose.model('products', Product);
